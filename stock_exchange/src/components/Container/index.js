@@ -1,19 +1,7 @@
-import React, { Component } from "react";
-import API from "../../utils/API";
-import "./style.css";
+import React from "react";
 
-class Container extends Component {
-searchMovies = query => {
-API.search(query)
-.then(res => this.setState({ result: res.data }))
-.catch(err => console.log(err));
-};
-
-render() {
-    return(
-        <div className="container"></div>
-        )
-}
+function Container(props) {
+  return <div className={`container${props.fluid ? "-fluid" : ""}`}>{props.children}</div>;
 }
 
 export default Container;

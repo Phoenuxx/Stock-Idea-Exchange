@@ -3,7 +3,7 @@ import React from "react";
 import "./style.css";
 
 function Footer() {
-    return(<div className="footer">Footer</div>)
+    return(<div className="footer fixed-bottom"></div>)
 }
 
 export default Footer;
