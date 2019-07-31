@@ -1,18 +1,8 @@
-import React from 'react';
-
-import AVContainer from './components/AVContainer';
-import './App.css';
-
-
+import React from "react";
+import OmdbContainer from "./components/OmdbContainer";
 
 function App() {
-  return (
-    <div className="App">
-
-      <AVContainer />
-
-    </div>
-  );
+  return <OmdbContainer />;
 }
 
 export default App;
