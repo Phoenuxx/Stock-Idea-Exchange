@@ -1,6 +1,6 @@
 import React from "react";
 
-function SearchForm(props) {
+function Login(props) {
   return (
     <form>
       <div className="form-group">
@@ -8,11 +8,20 @@ function SearchForm(props) {
         <input
           onChange={props.handleInputChange}
           value={props.value}
-          name="search"
+          name="username"
           type="text"
           className="form-control"
-          placeholder="Search For a Stock Symbol"
-          id="search"
+          placeholder="email"
+          id="username"
+        />
+         <input
+          onChange={props.handleInputChange}
+          value={props.value}
+          name="username"
+          type="text"
+          className="form-control"
+          placeholder="Password"
+          id="password"
         />
         <br />
         <button onClick={props.handleFormMulti} className="btn btn-primary">
@@ -23,4 +32,4 @@ function SearchForm(props) {
   );
 }
 
-export default SearchForm;
+export default Login;

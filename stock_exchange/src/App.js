@@ -1,8 +1,16 @@
 import React from "react";
-import OmdbContainer from "./components/OmdbContainer";
-
+import GraphContainer from "./components/GraphContainer";
+import Container from "./components/Container";
+import Row from "./components/Row";
+import UserBlock from "./components/UserBlock";
 function App() {
-  return <OmdbContainer />;
+  return (
+  <Container>
+    <Row>
+      <GraphContainer />
+      <UserBlock />
+    </Row>
+  </Container>);
 }
 
 export default App;
