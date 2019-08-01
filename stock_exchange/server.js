@@ -1,6 +1,9 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const passportSetup = require('./config/passport-setup');
+const keys = require('./config/keys');
+const authRoutes = require('./routes/authRoutes');
 
 let PORT = 3000;
 
