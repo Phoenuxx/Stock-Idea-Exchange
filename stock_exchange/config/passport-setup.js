@@ -6,9 +6,9 @@ const User = require('../models/user')
 passport.use(
     new GoogleStrat({
         //options for strat
-        callbackURL: '/auth/google/redirect',
-        clientID: keys.google.clientID,
-        clientSecret: keys.google.clientSecret
+        clientID: process.env.clientID,
+        clientSecret: process.env.clientSecret,
+        callbackURL: '/'
     }, (accessToken, refreshToken, profile, done) => {
         //check for existing user
         User.findOne({googleID: profile.id})

@@ -18,8 +18,8 @@ router.get('/google', passport.authenticate('google', {
 }));
 
 //callback for google redirect
-router.get('/google/redirect', passport.authenticate('google'), (req,res) => {
-    res.send('you reached cb uri');
+router.get('/', passport.authenticate('google'), (req,res) => {
+    console.log('google cb redirect test');
 })
 
 module.exports = router;
