@@ -5,7 +5,7 @@ import Card from "./Card";
 import SearchForm from "./SearchForm";
 // import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
-// const  moment = require('moment');
+const axios = require('axios');
 
 function createSimpleSwitcher(items, activeItem, activeItemChangedCallback) {
   const switcherElement = document.createElement('div');
@@ -108,7 +108,7 @@ syncToInterval(intervals[0]);
 
 
 
-class OmdbContainer extends Component {
+class GraphContainer extends Component {
   
   state = {
     search: ""
@@ -120,7 +120,7 @@ class OmdbContainer extends Component {
   componentDidMount() {
     document.querySelector(".card-body").appendChild(chartElement);
     document.querySelector(".card-body").appendChild(switcherElement);
-  }
+  };
 
   searchIntraDay = query => {
 
@@ -143,8 +143,8 @@ class OmdbContainer extends Component {
           }
 
           // console.log(data);
-          // console.log("____Meta Data_____");
-          // console.log(data["Meta Data"]);
+          console.log("____Meta Data_____");
+          console.log(data["Meta Data"]);
           // console.log("____Time Series____");
           // console.log(data["Time Series (5min)"]);
           // console.log("____Single TS______");
@@ -189,8 +189,8 @@ class OmdbContainer extends Component {
           }
 
           // console.log(data);
-          // console.log("____Meta Data_____");
-          // console.log(data["Meta Data"]);
+          console.log("____Meta Data_____");
+          console.log(data["Meta Data"]);
           // console.log("____Time Series____");
           // console.log(timeSeries);
           // console.log("____Single TS______");
@@ -233,8 +233,8 @@ class OmdbContainer extends Component {
           }
 
           // console.log(data);
-          // console.log("____Meta Data_____");
-          // console.log(data["Meta Data"]);
+          console.log("____Meta Data_____");
+          console.log(data["Meta Data"]);
           // console.log("____Time Series____");
           // console.log(timeSeries);
           // console.log("____Single TS______");
@@ -278,8 +278,8 @@ class OmdbContainer extends Component {
 
           // console.log("Monthly");
           // console.log(data);
-          // console.log("____Meta Data_____");
-          // console.log(data["Meta Data"]);
+          console.log("____Meta Data_____");
+          console.log(data["Meta Data"]);
           // console.log("____Time Series____");
           // console.log(timeSeries);
           // console.log("____Value__________");
@@ -307,11 +307,28 @@ class OmdbContainer extends Component {
   // When the form is submitted, search the Alpha Vantage API for the value of `this.state.search`
   handleFormMulti = event => {
     event.preventDefault();
+    console.log(this.state);
     this.searchIntraDay(this.state.search);
     this.searchDaily(this.state.search);
     this.searchWeekly(this.state.search);
     this.searchMonthly(this.state.search);
   };
+
+addToList = event => {
+  // db.User.find({where: {username: req.process.username}})
+  // .then(function(dbUser) {
+  //   // If we were able to successfully find User, send them back to the client
+  //   console.log(dbUser);
+  //   res.json(dbUser);
+  // })
+  // .catch(function(err) {
+  //   // If an error occurred, send it to the client
+  //   res.json(err);
+  // });
+  // axios.post('localhost:27017/StockExchangeDB'), {
+    
+  // }
+}
 
   render() {
     return (
@@ -321,6 +338,7 @@ class OmdbContainer extends Component {
             value={this.state.search}
             handleInputChange={this.handleInputChange}
             handleFormMulti={this.handleFormMulti}
+            handleDBAdd={this.addToList}
           />
         </Card>
       </Col>
@@ -328,4 +346,4 @@ class OmdbContainer extends Component {
   }
 }
 
-export default OmdbContainer;
+export default GraphContainer;

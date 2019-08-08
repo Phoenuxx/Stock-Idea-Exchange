@@ -15,11 +15,14 @@ router.get('/logout', (req,res) => {
 //auth w/ google
 router.get('/google', passport.authenticate('google', {
     scope: ['profile']
-}));
+    })
+);
 
 //callback for google redirect
-router.get('/', passport.authenticate('google'), (req,res) => {
-    console.log('google cb redirect test');
+router.get('/google/redirect', passport.authenticate('google'), (req,res) => {
+    console.log(req);
+    console.log(res);
+    res.send('you reached cb uri');
 })
 
 module.exports = router;
