@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import Col from "./Col";
 import Card from "./Card";
+import ListItem from './StockList';
+import Logout from './Logout';
 
 class User extends Component {
-  state = {
+    state = {
     name: "Luna",
     pass: "",
-    lists: []
+    symbols: ['WORK', 'TERP', 'IBM', 'VIA', 'T']
   }
 
   componentDidMount() {
+
+  }
+
+  componentWillMount() {
 
   }
 
@@ -29,7 +35,15 @@ class User extends Component {
   render() {
     return (
       <Col size="md-4">
-        <Card heading={this.state.name}>
+      <Card heading={this.state.name} logout={<Logout />}>
+      {this.state.symbols.map( symbol => {
+        return (
+          <ListItem
+            key={symbol}
+            name={symbol}         
+          />
+        );
+      })}
         </Card>
       </Col>
     );

@@ -3,10 +3,7 @@ import React from "react";
 function StockList(props) {
   return (
     <div className="card text-center">
-      <div className="card-header">
-        <h2>{props.heading}</h2>
-      </div>
-      <div className="card-body">{props.children}</div>
+      <div className="card-body"><h4>{props.name}</h4></div>
     </div>
   );
 }

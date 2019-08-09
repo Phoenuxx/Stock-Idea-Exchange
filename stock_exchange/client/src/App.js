@@ -10,7 +10,8 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false,
-      username: null
+      username: null,
+      data: []
     }
   }
 
@@ -20,7 +21,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/home" component={Home} />
+          <Route  path="/home" component={Home} />
           <Route component={NoMatch} />
         </Switch>
     </Router>

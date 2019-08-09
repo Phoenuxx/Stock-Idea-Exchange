@@ -1,6 +1,6 @@
 import axios from "axios";
 // const router = require('express').Router();
-const passport = require('passport');
+// const passport = require('passport');
 const baseURL = "https://www.alphavantage.co/query?function=";
 const key = process.env.alpha_vantage;
 const db = process.env.dbURI;
@@ -8,16 +8,16 @@ const db = process.env.dbURI;
 export default {
  
   searchIntra: function(query) {
-    return axios.get(baseURL + "TIME_SERIES_INTRADAY&datatype=json&symbol=" + query + "&interval=5min&apikey=" + key);
+    return (axios.get(baseURL + "TIME_SERIES_INTRADAY&datatype=json&symbol=" + query + "&interval=5min&apikey=" + key),
+            axios.get(baseURL + "TIME_SERIES_DAILY&datatype=json&symbol=" + query + "&apikey=" + key),
+            axios.get(baseURL + "TIME_SERIES_WEEKLY&datatype=json&symbol=" + query + "&apikey=" + key),
+            axios.get(baseURL + "TIME_SERIES_MONTHLY&datatype=json&symbol=" + query + "&apikey=" + key))
   },
   searchDaily: function(query) {
-    return axios.get(baseURL + "TIME_SERIES_DAILY&datatype=json&symbol=" + query + "&apikey=" + key);
   },
   searchWeekly: function(query) {
-    return axios.get(baseURL + "TIME_SERIES_WEEKLY&datatype=json&symbol=" + query + "&apikey=" + key);
   },
   searchMonthly: function(query) {
-    return axios.get(baseURL + "TIME_SERIES_MONTHLY&datatype=json&symbol=" + query + "&apikey=" + key);
   }, 
   addToList: function(query) {
     return axios.get(db)

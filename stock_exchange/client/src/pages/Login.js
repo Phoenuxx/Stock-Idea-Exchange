@@ -3,7 +3,6 @@ import React from "react";
 // import Col from '../components/Col';
 import Container from '../components/Container';
 import Login from "../components/Login";
-import { GoogleLogout } from 'react-google-login';
 // import Logout from '../components/Logout';
 function LoginPage() {
     
@@ -11,13 +10,8 @@ function LoginPage() {
         <Container>
             <h1>Welcome to Stock Exchange!</h1>
             <Login />
-
-            {/* <GoogleLogout
-            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-            buttonText="Logout"
-            onLogoutSuccess={logout}
-          >
-          </GoogleLogout> */}
+            <a href="./user">
+            <button >Test </button></a>
             </Container>
 
     );

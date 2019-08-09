@@ -5,7 +5,7 @@ import Card from "./Card";
 import SearchForm from "./SearchForm";
 // import MovieDetail from "./MovieDetail";
 import API from "../utils/API";
-const axios = require('axios');
+// const axios = require('axios');
 
 function createSimpleSwitcher(items, activeItem, activeItemChangedCallback) {
   const switcherElement = document.createElement('div');
@@ -40,7 +40,7 @@ function createSimpleSwitcher(items, activeItem, activeItemChangedCallback) {
   return switcherElement;
 }
 
-const intervals = ['ID', '1D', '1W', '1M'];
+const intervals = ['5M', '1D', '1W', '1M'];
 
 let intraData = [];
 let dayData = [];
@@ -50,7 +50,7 @@ let monthData = [];
 let lineSeries = null;
 
 const seriesData = new Map([
-  ['ID', intraData],
+  ['5M', intraData],
   ['1D', dayData],
   ['1W', weekData],
   ['1M', monthData]
@@ -328,6 +328,7 @@ addToList = event => {
   // axios.post('localhost:27017/StockExchangeDB'), {
     
   // }
+  // const itemToAdd = this.state.search
 }
 
   render() {
